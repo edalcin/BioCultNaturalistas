@@ -14,7 +14,7 @@ O **BioCultNaturalistas** é o componente da [Arquitetura BioCultural](https://g
 
 ## Posição na Arquitetura Federada
 
-Na arquitetura federada da [Arquitetura BioCultural](https://github.com/edalcin/Arquitetura-BioCultural), o BioCultNaturalistas será o componente central de um novo tipo de membro — **Obras de Naturalistas (séc. XVII–XIX)** — seguindo o mesmo padrão de soberania dos demais membros: container próprio, arquivo SQLite+JSON compartilhado com uma instância soberana do [BioCultTermos](https://github.com/edalcin/BioCultTermos), e endpoint de harvest REST para o [Pluriverso](https://github.com/edalcin/pluriverso).
+Na arquitetura federada da [Arquitetura BioCultural](https://github.com/edalcin/Arquitetura-BioCultural), o BioCultNaturalistas será o componente central de um novo tipo de membro — **Obras de Naturalistas (séc. XVII–XIX)** — seguindo o mesmo padrão de soberania dos demais membros: container próprio, arquivo SQLite+JSON compartilhado com uma instância soberana do [BioCultTermos](https://github.com/edalcin/BioCultTermos), e endpoint de harvest REST para o [Pluriverso](https://github.com/edalcin/pluriverso). A camada semântica dessa instância é gerida pelo BioCultTermos embutido (vocabulários soberanos do membro); o Pluriverso unifica essa camada com as dos demais membros por meio de mapeamentos SKOS-XL (`skos:exactMatch`, `skos:closeMatch`, `skos:broadMatch`), sem jamais assumir a posse dos vocabulários.
 
 ## Princípios C.A.R.E.
 
