@@ -4,7 +4,7 @@ Registro de evidências da relação de comunidades tradicionais com a biodivers
 
 [![GitHub](https://img.shields.io/badge/GitHub-BioCultNaturalistas-181717?logo=github)](https://github.com/edalcin/BioCultNaturalistas)
 
-> **Status**: Fase inicial — apenas repositório e documentação.
+> **Status**: Modelo de dados e contextos especificados (documentação de fundação completa — ainda sem código).
 
 ---
 
@@ -17,6 +17,15 @@ O **BioCultNaturalistas** é o componente da [Arquitetura BioCultural](https://g
 Na arquitetura federada da [Arquitetura BioCultural](https://github.com/edalcin/Arquitetura-BioCultural), o BioCultNaturalistas será o componente central de um novo tipo de membro — **Obras de Naturalistas (séc. XVII–XIX)** — seguindo o mesmo padrão de soberania dos demais membros: container próprio, arquivo SQLite+JSON compartilhado com uma instância soberana do [BioCultTermos](https://github.com/edalcin/BioCultTermos), e endpoint de harvest REST para o [Pluriverso](https://github.com/edalcin/pluriverso). A camada semântica dessa instância é gerida pelo BioCultTermos embutido (vocabulários soberanos do membro); o Pluriverso unifica essa camada com as dos demais membros por meio de mapeamentos SKOS-XL (`skos:exactMatch`, `skos:closeMatch`, `skos:broadMatch`), sem jamais assumir a posse dos vocabulários.
 
 **Integração técnica com BioCultTermos**: via git submodule, seguindo o mesmo padrão já em produção no BioCultDB e planejado no BioCultRelatos — repositório único compartilhado entre as unidades, congelado como produto standalone (ver [ADR-007](https://github.com/edalcin/Arquitetura-BioCultural/blob/main/docs/architecture-decisions/ADR-007-shared-bioculttermos-module.md) da Arquitetura BioCultural). Detalhes desta integração específica em `docs/decisions/ADR-001-integracao-bioculttermos.md` e `integracao.md`.
+
+## Documentação
+
+- [`docs/decisions/data-model.md`](docs/decisions/data-model.md) — modelo de dados: as cinco tabelas-documento (Naturalista, Viagem, Obra, Táxon, Evidência), schemas, validações, índices e integridade referencial.
+- [`docs/decisions/spec.md`](docs/decisions/spec.md) — requisitos funcionais dos contextos Registro e Apresentação.
+- [`docs/decisions/ADR-002-modelo-de-dados-e-contextos.md`](docs/decisions/ADR-002-modelo-de-dados-e-contextos.md) — decisões estruturais do modelo de dados e dos contextos/portas.
+- [`docs/decisions/ADR-003-fonte-de-vocabulario-bioculttermos.md`](docs/decisions/ADR-003-fonte-de-vocabulario-bioculttermos.md) — contrato de vocabulário controlado com o BioCultTermos.
+- [`docs/roadmap.md`](docs/roadmap.md) — fases de implementação, da documentação de fundação (F0) à operação (F7).
+
 
 ## Princípios C.A.R.E.
 

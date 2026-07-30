@@ -32,7 +32,7 @@ um checklist executável contra um sistema em produção (diferente do documento
 | Cardinalidade | Uma instância única, global | **N instâncias**, uma por projeto de sistematização de obra(s) de naturalista(s) membro da federação, cada uma soberana |
 | Dados pré-existentes | Produção real e populada (`biocultdb.sqlite`) | Nenhum — cada projeto parte de um arquivo novo |
 | Ferramenta principal | BioCultDB (3 contextos: Aquisição/Curadoria/Apresentação, sem CLPI) | BioCultNaturalistas (extração/sistematização de evidências em obras e relatórios de naturalistas, sem CLPI direto — a fonte é obra histórica publicada, não registro vivo de comunidade, mas os princípios C.A.R.E. seguem valendo integralmente) |
-| Portas da ferramenta principal | 3001/3002/3003 (fixas, já em uso) | Ainda não definidas (BioCultNaturalistas não tem código) |
+| Portas da ferramenta principal | 3001/3002/3003 (fixas, já em uso) | 3001 (Registro) / 3003 (Apresentação) — 3002 deliberadamente vago |
 | `AcquisitionService` do BioCultTermos | Já funciona hoje (schema `biocultdb_records` hardcoded) | **Não funciona sem generalização** — schema de dados é outro (ver Decisão 6) |
 
 ## Decisão
@@ -81,6 +81,9 @@ Os pontos a seguir **não** são herdados automaticamente — exigem decisão/tr
    unidade"). Este é trabalho de código no **repositório BioCultTermos** (compartilhado por todas as
    unidades), não específico do BioCultNaturalistas — pode (e idealmente deve) ser feito uma única vez,
    antes de qualquer unidade além do BioCultDB entrar em produção.
+
+   > **Atualização (Julho 2026)**: o contrato de generalização foi apertado para lista de pares
+   > `{tabela, campos[]}` (esta unidade tem duas tabelas-fonte de vocabulário, não uma) — ver ADR-003.
 7. **Nome do arquivo SQLite**: como não há dado legado a preservar (diferente do BioCultDB, que ficou
    com `biocultdb.sqlite` por continuidade), cada nova instância de projeto **deve** usar o nome
    canônico da ADR-005: `SQLITE_DB_PATH=/data/unidade.sqlite`. A divergência do BioCultDB é uma exceção
@@ -89,6 +92,9 @@ Os pontos a seguir **não** são herdados automaticamente — exigem decisão/tr
    definidas — dependem do desenho de produto do BioCultNaturalistas. Fora do escopo desta ADR, que trata
    apenas da integração com BioCultTermos. Quando o BioCultNaturalistas tiver seu primeiro esboço de
    contextos/portas, revisar esta ADR.
+
+    > **Atualização (Julho 2026)**: portas definidas — Registro 3001, Apresentação 3003, 3002
+    > deliberadamente vago (sem contexto de curadoria) — ver ADR-002 (M7).
 9. **Convenção de nome de container/deployment por projeto**: recomendado
    `bioculnaturalistas-<slug-do-projeto>`, um container Docker por projeto de sistematização, cada um com
    seu próprio volume de dados — nunca um container multi-tenant compartilhando arquivo entre projetos
@@ -102,6 +108,10 @@ Os pontos a seguir **não** são herdados automaticamente — exigem decisão/tr
     conhecimento é registrado e compartilhado permanece com a comunidade referida na obra, não com o
     projeto de sistematização. Tratamento operacional desse princípio (ex.: campos de proveniência,
     sinalização de sensibilidade) é decisão de produto do BioCultNaturalistas, fora do escopo desta ADR.
+
+    > **Atualização (Julho 2026)**: tratamento operacional definido — campo `bcn_evidencias.sensibilidade`
+    > (`"publico"|"restrito"`, default `"publico"`), que rege visibilidade no contexto Apresentação e no
+    > endpoint de federação — ver ADR-002 (M8).
 
 ## Consequências
 
@@ -139,6 +149,10 @@ Os pontos a seguir **não** são herdados automaticamente — exigem decisão/tr
 - `BioCultNaturalistas/integracao.md` (checklist/padrão detalhado desta decisão)
 - `BioCultDB/bioculttermos/backend/src/services/AcquisitionService.js` (ponto de generalização
   necessário)
+- `docs/decisions/ADR-002-modelo-de-dados-e-contextos.md` (fecha os pontos 8 e 10 acima — portas e
+  tratamento de C.A.R.E./sensibilidade)
+- `docs/decisions/ADR-003-fonte-de-vocabulario-bioculttermos.md` (fecha o ponto 6 acima — contrato de
+  generalização do `AcquisitionService`)
 
 ## Data de Revisão
 

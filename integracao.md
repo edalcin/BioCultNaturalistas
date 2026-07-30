@@ -70,16 +70,23 @@ tabela-fonte e a lista de campos monitorados sejam configuráveis, e os textos f
 genéricos. Trabalho de código no repositório **BioCultTermos** (compartilhado por todas as unidades),
 não específico desta unidade.
 
+A generalização acima precisa aceitar **N** tabelas-fonte, não apenas uma: o modelo de dados desta
+unidade (`docs/decisions/data-model.md`) espalha os termos candidatos ao BioCultTermos entre
+`bcn_evidencias` e `bcn_taxons`. Ver `docs/decisions/ADR-003-fonte-de-vocabulario-bioculttermos.md` para
+o contrato de configuração `{tabela, campos[]}` que fecha este requisito.
+
 ### 2.2 Nome do arquivo SQLite
 
 `SQLITE_DB_PATH=/data/unidade.sqlite` desde o primeiro deploy (nome canônico da ADR-005) — sem dado
 legado a preservar, ao contrário do BioCultDB.
 
-### 2.3 Portas da ferramenta principal desta unidade — ainda não definidas
+### 2.3 Portas da ferramenta principal: Registro 3001, Apresentação 3003 (3002 vago)
 
-Fora do escopo deste documento (que trata só da integração com BioCultTermos). Quando o primeiro esboço
-de contextos/portas existir, atualizar este documento e a ADR-001 com os números reais — o único ponto
-fixo hoje é que **BioCultTermos usa 4000/4001 internamente, sempre**.
+Decidido em `docs/decisions/ADR-002-modelo-de-dados-e-contextos.md` (M7): dois contextos HTTP —
+**Registro** (3001, entrada e edição de dados) e **Apresentação** (3003, busca e visualização pública).
+A porta 3002 fica deliberadamente vaga, sem contexto de curadoria (ausente nesta unidade — ver ADR-002
+M2), para nunca colidir com o significado que 3002 tem no BioCultDB (Curadoria). BioCultTermos segue
+usando 4000/4001 internamente, sempre, independente da ferramenta principal.
 
 ### 2.4 Multi-tenant: convenção de deployment por instância
 
@@ -99,9 +106,11 @@ fonte não pode mais ser consultado, e não há protocolo de CLPI a executar no 
 Isso não reduz a responsabilidade ética: os princípios C.A.R.E. (Collective Benefit, Authority to
 Control, Responsibility, Ethics — ver `BioCultNaturalistas/README.md`) seguem valendo integralmente,
 porque a evidência extraída ainda descreve conhecimento tradicional de uma comunidade específica,
-documentado por terceiros séculos atrás. Tratamento operacional (campos de proveniência da obra,
-sinalização de sensibilidade, atribuição à comunidade referida) é decisão de produto do
-BioCultNaturalistas — fora do escopo desta integração com BioCultTermos.
+documentado por terceiros séculos atrás. **Tratamento operacional decidido**: o campo
+`bcn_evidencias.sensibilidade` (`"publico"|"restrito"`, default `"publico"`) — evidências `"restrito"`
+nunca saem no endpoint de federação nem na busca pública do contexto Apresentação, permanecendo
+acessíveis apenas no contexto Registro. Ver `docs/decisions/ADR-002-modelo-de-dados-e-contextos.md`
+(M8) para a decisão completa.
 
 ### 2.6 Endpoint de federação — não é escopo deste documento
 
@@ -116,8 +125,8 @@ compartilhar o arquivo SQLite e prover vocabulário controlado.
 2. Adicionar `bioculttermos` como git submodule na raiz deste repositório
    (`git submodule add https://github.com/edalcin/BioCultTermos.git bioculttermos`).
 3. Criar `docker/Dockerfile.unidade` e `docker/start-unit.sh` espelhando os do BioCultDB.
-4. Definir e documentar as portas da ferramenta principal (§2.3) antes de finalizar o
-   Dockerfile/entrypoint.
+4. Portas da ferramenta principal já definidas: Registro 3001, Apresentação 3003, 3002 vago (ver
+   `docs/decisions/ADR-002-modelo-de-dados-e-contextos.md` M7) — **resolvido**, nada a fazer aqui.
 5. Criar `.github/workflows/docker-publish.yml` com `submodules: recursive` e build de
    `docker/Dockerfile.unidade`.
 6. Para o primeiro deploy de cada instância: `SQLITE_DB_PATH=/data/unidade.sqlite` (arquivo novo, vazio),
@@ -135,8 +144,8 @@ compartilhar o arquivo SQLite e prover vocabulário controlado.
   este documento cobre só a integração com BioCultTermos.
 - Endpoint `/api/federation/records` e integração com Pluriverso (§2.6) — decisão/documento separado.
 - Automação de provisionamento multi-instância (§2.4) — próxima ADR quando o volume justificar.
-- Tratamento operacional dos princípios C.A.R.E. sem CLPI direto (§2.5) — decisão de produto do
-  BioCultNaturalistas, separada desta integração.
+- Tratamento operacional dos princípios C.A.R.E. sem CLPI direto — **decidido** em §2.5 (campo
+  `sensibilidade`, ver ADR-002 M8); não é mais um ponto em aberto desta integração.
 
 ## 5. Glossário
 
