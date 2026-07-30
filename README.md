@@ -18,6 +18,27 @@ Na arquitetura federada da [Arquitetura BioCultural](https://github.com/edalcin/
 
 **Integração técnica com BioCultTermos**: via git submodule, seguindo o mesmo padrão já em produção no BioCultDB e planejado no BioCultRelatos — repositório único compartilhado entre as unidades, congelado como produto standalone (ver [ADR-007](https://github.com/edalcin/Arquitetura-BioCultural/blob/main/docs/architecture-decisions/ADR-007-shared-bioculttermos-module.md) da Arquitetura BioCultural). Detalhes desta integração específica em `docs/decisions/ADR-001-integracao-bioculttermos.md` e `integracao.md`.
 
+## Fundamentos do Produto
+
+O modelo de dados segue o "look and feel" e o stack tecnológico do BioCultDB, com três subtrações
+deliberadas: **sem interface de curadoria**, **sem entidade de Comunidade autônoma** (comunidades
+tradicionais entram como vocabulário controlado dentro da evidência, não como registro próprio) e
+**espécies associadas às obras através da evidência**, nunca diretamente.
+
+Cinco entidades centrais, ligadas por id (`docs/decisions/data-model.md`):
+
+- **Naturalista** — biografia e contexto histórico/social/econômico da vinda ao Brasil.
+- **Viagem** — roteiro ordenado de etapas percorridas por um ou mais naturalistas.
+- **Obra** — a referência publicada (relato, reedição, tradução, estudo), com auto-relação para derivadas.
+- **Táxon** — a espécie citada, com nome-na-obra e nome científico atual (entrada manual) separados.
+- **Evidência** — entidade central: o trecho transcrito que liga uma Obra a um Táxon, com os usos
+  registrados, contexto geográfico/sociocultural, `confiabilidade` (explícita/inferida) e
+  `sensibilidade` (público/restrito) — o tratamento operacional de C.A.R.E. sem CLPI direto.
+
+Dois contextos HTTP: **Registro** (porta 3001, entrada e edição de dados) e **Apresentação** (porta
+3003, busca e visualização pública) — a porta 3002 fica deliberadamente vaga, marcando a ausência de
+curadoria. Decisões completas em `docs/decisions/ADR-002-modelo-de-dados-e-contextos.md`.
+
 ## Documentação
 
 - [`docs/decisions/data-model.md`](docs/decisions/data-model.md) — modelo de dados: as cinco tabelas-documento (Naturalista, Viagem, Obra, Táxon, Evidência), schemas, validações, índices e integridade referencial.
