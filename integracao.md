@@ -122,8 +122,12 @@ compartilhar o arquivo SQLite e prover vocabulário controlado.
 
 1. Confirmar que o `AcquisitionService` do BioCultTermos já foi generalizado (§2.1) — se não, esse é o
    primeiro passo, no repositório BioCultTermos, antes de tocar nesta unidade.
-2. Adicionar `bioculttermos` como git submodule na raiz deste repositório
-   (`git submodule add https://github.com/edalcin/BioCultTermos.git bioculttermos`).
+2. ~~Adicionar `bioculttermos` como git submodule na raiz deste repositório~~ — **feito**
+   (2026-08-09), pinado em `f44e72d`. Comando usado, com o `-b main` que o ADR-012 G3 exige:
+   `git submodule add -b main https://github.com/edalcin/BioCultTermos.git bioculttermos`.
+   Sem `branch = main` no `.gitmodules`, `git submodule update --remote` não tem alvo declarado.
+   Enquanto esta unidade não tiver `docker/Dockerfile.unidade`, o bump aqui é escrituração e não
+   adoção verificada — não há como buildar nem exercitar o módulo (ADR-010 G3).
 3. Criar `docker/Dockerfile.unidade` e `docker/start-unit.sh` espelhando os do BioCultDB.
 4. Portas da ferramenta principal já definidas: Registro 3001, Apresentação 3003, 3002 vago (ver
    `docs/decisions/ADR-002-modelo-de-dados-e-contextos.md` M7) — **resolvido**, nada a fazer aqui.
