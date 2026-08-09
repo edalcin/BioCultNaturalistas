@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageTitle %> - <%= contextName %></title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <script src="https://unpkg.com/htmx.org@1.9.10" defer></script>
+  <script src="https://unpkg.com/alpinejs@3.13.3/dist/cdn.min.js" defer></script>
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50">
+
+  <header class="bg-forest-700 text-white shadow-lg">
+    <div class="container mx-auto px-4 py-4">
+      <div class="flex items-center gap-4">
+        <div>
+          <h1 class="text-2xl font-bold text-white mb-0"><%= contextName %></h1>
+          <p class="text-forest-100 text-sm"><%= contextDescription %></p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="bg-forest-600 text-white border-b border-forest-800">
+    <div class="container mx-auto px-4">
+      <ul class="flex gap-0">
+        <li>
+          <a href="/" class="block px-6 py-3 hover:bg-forest-700 transition-colors border-b-2 border-forest-400 font-medium">
+            Início
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+
+    <section class="card mb-8">
+      <h2>Obras de Naturalistas (séc. XVII–XIX)</h2>
+      <p class="text-gray-700 leading-relaxed">
+        O BioCultNaturalistas sistematiza evidências de conhecimento tradicional associado à
+        biodiversidade documentadas em obras e relatos de naturalistas em visita ao Brasil entre
+        os séculos XVII e XIX — uma fonte histórica rica e ainda pouco sistematizada. Cada projeto
+        de sistematização de uma ou mais obras é uma unidade federada soberana: um container, um
+        arquivo de dados, autonomia sobre o que registra.
+      </p>
+      <p class="text-gray-700 leading-relaxed mt-4">
+        A fonte é histórica, não uma comunidade viva consultada no presente: não há Consentimento
+        Livre, Prévio e Informado a obter no momento do registro. Isso não reduz a responsabilidade
+        ética — os princípios <strong>C.A.R.E.</strong> continuam valendo integralmente, porque a
+        evidência extraída ainda descreve conhecimento de uma comunidade tradicional específica,
+        documentado por terceiros séculos atrás.
+      </p>
+      <p class="text-gray-700 leading-relaxed mt-4">
+        O modelo de dados desta unidade organiza a evidência em cinco entidades ligadas por id:
+        <strong>naturalistas</strong> (biografia e contexto da vinda ao Brasil), <strong>viagens</strong>
+        (o roteiro percorrido), <strong>obras</strong> (a referência publicada, com suas reedições e
+        traduções), <strong>táxons</strong> (a espécie citada, nome-na-obra e nome científico atual
+        tratados separadamente) e <strong>evidências</strong> (o trecho transcrito que liga uma obra a
+        um táxon, com os usos registrados e o contexto geográfico e sociocultural).
+      </p>
+    </section>
+
+    <h2>Contextos desta unidade</h2>
+    <div class="grid gap-6 md:grid-cols-2 mb-8">
+
+      <div class="card">
+        <h3>Registro</h3>
+        <p class="text-gray-600 text-sm">
+          Entrada e edição dos dados extraídos das obras: naturalistas, viagens, obras, táxons e
+          evidências.
+        </p>
+        <span class="badge bg-yellow-100 text-yellow-800 mt-4 inline-block">Em construção</span>
+      </div>
+
+      <div class="card">
+        <h3>Apresentação</h3>
+        <p class="text-gray-600 text-sm">
+          Consulta pública das evidências sistematizadas, por naturalista, obra, táxon ou viagem.
+        </p>
+        <span class="badge bg-yellow-100 text-yellow-800 mt-4 inline-block">Em construção</span>
+      </div>
+
+    </div>
+
+    <section class="card">
+      <h3>Vocabulário controlado</h3>
+      <p class="text-gray-600 text-sm">
+        Os termos desta unidade são curados no <strong>BioCultTermos</strong>, que roda no mesmo
+        container e grava no mesmo arquivo de dados. O código do módulo é idêntico em todas as
+        unidades da federação; nomes vernaculares, nomes científicos atuais e demais vocabulários
+        candidatos desta unidade não saem daqui.
+      </p>
+      <p class="text-gray-500 text-xs mt-3">
+        Interface pública do vocabulário na porta 4000 desta unidade, quando o container estiver de pé.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-800 text-white py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-sm">BioCultNaturalistas — Obras de Naturalistas (séc. XVII–XIX) da Arquitetura BioCultural</p>
+      <p class="text-xs text-gray-400 mt-1">
+        Evidências históricas de conhecimento tradicional seguindo princípios C.A.R.E.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

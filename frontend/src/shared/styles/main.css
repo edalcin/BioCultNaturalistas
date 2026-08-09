@@ -1,0 +1,18 @@
+/**
+ * BioCultNaturalistas — entrada do Tailwind.
+ *
+ * Os componentes visuais da arquitetura vêm do Módulo Compartilhado. Nada de
+ * `.btn`, `.card` ou paleta redefinidos aqui: divergência visual entre unidades
+ * federadas é o mesmo problema que o ADR-012 resolveu para o código.
+ * Abaixo das diretivas, só o que for genuinamente do BioCultNaturalistas.
+ *
+ * O `@import` vem antes de tudo porque o postcss-import ignora `@import` que
+ * apareça depois de outras regras. A ordem das camadas no CSS final não depende
+ * dessa posição: `@layer` do Tailwind é diretiva de build, não cascade layer.
+ */
+
+@import "../../../../bioculttermos/frontend/src/styles/biocult-base.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

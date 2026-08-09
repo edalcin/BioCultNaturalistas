@@ -1,0 +1,29 @@
+{
+  "name": "biocultnaturalistas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unidade da Arquitetura BioCultural — registro de evidências de conhecimento tradicional associado à biodiversidade em obras de naturalistas em visita ao Brasil (séc. XVII-XIX).",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:css\"",
+    "dev:server": "nodemon backend/src/server.js",
+    "dev:css": "tailwindcss -i frontend/src/shared/styles/main.css -o frontend/dist/styles/main.css --watch",
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -i frontend/src/shared/styles/main.css -o frontend/dist/styles/main.css --minify",
+    "start": "node backend/src/server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
