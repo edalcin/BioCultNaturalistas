@@ -291,9 +291,14 @@ fonte histórica e, separadamente, o nome científico aceito atualmente.
 - `nomeCientificoObra`: obrigatório, max 300 caracteres
 - `nomeCientificoAtual`: **entrada manual, texto livre — sem lookup online em Flora e Funga do
   Brasil/GBIF.** Decisão de produto (ver ADR-002 M5): zero dependência de rede/segredo/cache, imagem
-  Docker menor (`docs/principiosDesenvolvimento.md:16`). O BioCultTermos acumula `nomeCientificoAtual` e
-  `nomesVernaculares[].nome` como conceitos candidatos, sendo o mecanismo de convergência dos nomes ao
-  longo do tempo — a ausência de resolução automática é decisão, não lacuna.
+  Docker menor (`docs/principiosDesenvolvimento.md:16`) — a ausência de resolução automática é decisão,
+  não lacuna. **Não** é vocabulário controlado do BioCultTermos: nomenclatura científica está fora do
+  escopo do vocabulário da federação
+  (`Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`,
+  N1, N3) — o campo permanece dado de primeira classe de `bcn_taxons` (ADR-014 N2). Só
+  `nomesVernaculares[].nome` é acumulado pelo BioCultTermos como conceito candidato; a convergência
+  entre os dois nomes se dá por co-ocorrência no mesmo registro do táxon (ADR-014 N4), não por conceito
+  espelho local.
 - `statusNomenclatural`: enum `"aceito"|"sinonimo"|"nao_resolvido"|"nao_verificado"`; default
   `"nao_verificado"` quando `nomeCientificoAtual` está vazio
 - `reino`: enum `"Plantae"|"Fungi"|"Animalia"|"outro"`

@@ -76,6 +76,16 @@ do docker"). O BioCultTermos acumula `nomeCientificoAtual` e `nomesVernaculares[
 candidatos, funcionando como o mecanismo de convergência dos nomes ao longo do tempo, sem que o
 BioCultNaturalistas precise implementar resolução taxonômica própria.
 
+> **Retificação (2026-08-10)**: o parágrafo acima está incorreto quanto ao papel do BioCultTermos.
+> Nomenclatura científica saiu do escopo do vocabulário controlado da federação — o BioCultTermos
+> **não** acumula mais `nomeCientificoAtual` como conceito candidato
+> (`Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`,
+> N1, N3); apenas `nomesVernaculares[].nome` continua acumulado normalmente. A decisão de M5 acima —
+> `nomeCientificoAtual` como campo manual de `bcn_taxons`, sem lookup externo — **permanece
+> integralmente válida** (ADR-014 N2): nada muda na captura, validação ou exibição do campo. Só a
+> convergência dos dois nomes ao longo do tempo deixa de passar por um conceito espelho no
+> BioCultTermos e passa a ser a co-ocorrência dos dois nomes no mesmo registro do táxon (ADR-014 N4).
+
 ### M6 — Derivadas por auto-relação de nível único
 
 Uma Obra tem `tipoRelacao` (`"principal"|"reedicao"|"traducao"|"comentada"|"estudo"|"fac-simile"`) e
@@ -169,6 +179,9 @@ ADR:
   padrão de arquivo SQLite compartilhado por unidade.
 - `D:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-007-shared-bioculttermos-module.md` —
   padrão de submodule compartilhado do BioCultTermos.
+- `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+  — retira nomenclatura científica do escopo do vocabulário controlado da federação; retifica a
+  afirmação sobre o BioCultTermos em M5 acima (ver nota).
 - `docs/naturalistas.md` — fonte que originou os requisitos de fidelidade histórica (M4, M6, M8).
 
 ## Data de Revisão
