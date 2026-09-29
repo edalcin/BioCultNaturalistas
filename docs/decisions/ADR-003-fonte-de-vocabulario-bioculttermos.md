@@ -128,7 +128,7 @@ futura desta ADR, não uma omissão silenciosa.
 - `docs/decisions/data-model.md` — schemas completos de `bcn_evidencias` e `bcn_taxons`.
 - `integracao.md` §2.1 (`:64-71`) e §3 passo 1 (`:112-115`) — checklist de implementação que trata a
   generalização como bloqueante.
-- `D:/git/BioCultDB/bioculttermos/backend/src/services/AcquisitionService.js` — código a generalizar.
+- `S:/git/BioCultDB/bioculttermos/backend/src/services/AcquisitionService.js` — código a generalizar.
 - `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
   — retira nomenclatura científica do escopo do vocabulário controlado da federação (N1, N3); motivou a
   emenda de 2026-08-10 ao contrato V2 desta ADR.

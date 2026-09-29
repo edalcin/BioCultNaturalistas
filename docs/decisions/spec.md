@@ -5,7 +5,7 @@
 **Status**: Completo
 **Input**: `docs/promptInicial.md`
 
-Este documento espelha o papel de `D:/git/BioCultDB/docs/decisions/spec.md` — os requisitos funcionais
+Este documento espelha o papel de `S:/git/BioCultDB/docs/decisions/spec.md` — os requisitos funcionais
 que o modelo de dados de `docs/decisions/data-model.md` deve suportar. Convenções de "look and feel" e
 stack são herdadas do BioCultDB (`docs/principiosDesenvolvimento.md`); as três subtrações pedidas em
 `docs/promptInicial.md` (sem curadoria, sem entidade Comunidade autônoma, espécie associada à Obra via
@@ -43,7 +43,7 @@ Cada requisito nomeia a entidade (`docs/decisions/data-model.md`) que a tela gra
   ferramenta, na sequência: (1) escolher a Obra; (2) escolher ou criar o Táxon (FR-R04); (3) transcrever
   o trecho-fonte (`trechoTranscrito`, opcionalmente `traducaoTrecho`); (4) adicionar N usos como linhas
   incrementais via HTMX — mesmo padrão de `POST /plant/add/:communityIndex` em
-  `D:/git/BioCultDB/backend/src/contexts/acquisition/routes.js:36-45`, adaptado para
+  `S:/git/BioCultDB/backend/src/contexts/acquisition/routes.js:36-45`, adaptado para
   `POST /evidencia/uso/add/:idx`; (5) preencher contexto geográfico e sociocultural; (6) escolher
   `confiabilidade` (sem default) e `sensibilidade` (default `"publico"`).
 - **FR-R06**: O contexto Registro DEVE exibir **todas** as evidências, independentemente de

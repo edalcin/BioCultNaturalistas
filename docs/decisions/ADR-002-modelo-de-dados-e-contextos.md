@@ -51,7 +51,7 @@ aprovação prévia.
 evidência — não existe tabela `bcn_comunidades`.
 
 Isso é exatamente o que separa esta unidade do BioCultDB, cujo doc-raiz tem `comunidades[]` como array
-**obrigatório** e estrutural (`D:/git/BioCultDB/backend/src/models/Reference.js:25-42`): no BioCultDB a
+**obrigatório** e estrutural (`S:/git/BioCultDB/backend/src/models/Reference.js:25-42`): no BioCultDB a
 Comunidade é a entidade organizadora (Referência → Comunidades → Plantas); no BioCultNaturalistas a
 Evidência é a entidade central e a comunidade é um atributo qualificador dela, não um nó da hierarquia.
 
@@ -173,11 +173,11 @@ ADR:
 - `docs/decisions/spec.md` — requisitos funcionais suportados por este modelo.
 - `docs/decisions/ADR-001-integracao-bioculttermos.md` — pontos 6, 8 e 10 fechados/apertados por esta
   ADR e pela ADR-003.
-- `D:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-004-federated-architecture.md` —
+- `S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-004-federated-architecture.md` —
   contrato do endpoint de federação referenciado em M8.
-- `D:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-005-sqlite-json-persistence.md` —
+- `S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-005-sqlite-json-persistence.md` —
   padrão de arquivo SQLite compartilhado por unidade.
-- `D:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-007-shared-bioculttermos-module.md` —
+- `S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-007-shared-bioculttermos-module.md` —
   padrão de submodule compartilhado do BioCultTermos.
 - `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
   — retira nomenclatura científica do escopo do vocabulário controlado da federação; retifica a

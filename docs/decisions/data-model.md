@@ -8,7 +8,7 @@
 
 Este documento define o modelo de dados do BioCultNaturalistas, com base no armazenamento de documentos
 JSON sobre SQLite (JSON1, ADR-005 da Arquitetura BioCultural) e nos requisitos funcionais de
-`spec.md`. Ele espelha a estrutura de `D:/git/BioCultDB/docs/decisions/data-model.md`, mas diverge do
+`spec.md`. Ele espelha a estrutura de `S:/git/BioCultDB/docs/decisions/data-model.md`, mas diverge do
 BioCultDB numa decisão central: em vez de um único doc-raiz (`biocultdb_records`) contendo comunidades e
 plantas embutidas, o BioCultNaturalistas usa **cinco tabelas-documento separadas**, ligadas por `id`.
 
@@ -35,7 +35,7 @@ submodule BioCultTermos hoje.)
 
 ### Padrão de tabela-documento
 
-Toda tabela segue **exatamente** o padrão de `D:/git/BioCultDB/backend/src/shared/database.js:63-70`:
+Toda tabela segue **exatamente** o padrão de `S:/git/BioCultDB/backend/src/shared/database.js:63-70`:
 
 ```sql
 CREATE TABLE IF NOT EXISTS <tabela> (
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS <tabela> (
 ```
 
 `id` é um UUID v4 gerado pela aplicação (`crypto.randomUUID()`), como em
-`D:/git/BioCultDB/backend/src/models/Reference.js:9,17`. Timestamps são strings ISO-8601. Colunas
+`S:/git/BioCultDB/backend/src/models/Reference.js:9,17`. Timestamps são strings ISO-8601. Colunas
 adicionais são geradas via `ALTER TABLE ... ADD COLUMN <nome> GENERATED ALWAYS AS (json_extract(doc,
 '$.<campo>')) VIRTUAL`, criadas de forma idempotente capturando o erro `duplicate column name` — a mesma
 técnica de `_ensureGeneratedColumn` em `database.js:97-110`, necessária porque `PRAGMA table_info` não

@@ -68,7 +68,7 @@ requisitos FR-A01 a FR-A07 de `docs/decisions/spec.md`. Aplica a regra de visibi
 ## F6 — Endpoint de federação
 
 **Entrega**: `GET /api/federation/records` no shape definido por
-`D:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-004-federated-architecture.md:125-150`
+`S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-004-federated-architecture.md:125-150`
 (`{member_id, total, page, records:[{id, visibility, updated_at, data}]}`, paginação obrigatória,
 `size` máx. 500), expondo **apenas** evidências `sensibilidade === "publico"` (ADR-002 M8), com `data`
 montado a partir da evidência mais os campos desnormalizados da obra, do táxon e do naturalista
