@@ -79,7 +79,7 @@ BioCultNaturalistas precise implementar resolução taxonômica própria.
 > **Retificação (2026-08-10)**: o parágrafo acima está incorreto quanto ao papel do BioCultTermos.
 > Nomenclatura científica saiu do escopo do vocabulário controlado da federação — o BioCultTermos
 > **não** acumula mais `nomeCientificoAtual` como conceito candidato
-> (`Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`,
+> (`Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`,
 > N1, N3); apenas `nomesVernaculares[].nome` continua acumulado normalmente. A decisão de M5 acima —
 > `nomeCientificoAtual` como campo manual de `bcn_taxons`, sem lookup externo — **permanece
 > integralmente válida** (ADR-014 N2): nada muda na captura, validação ou exibição do campo. Só a
@@ -173,13 +173,13 @@ ADR:
 - `docs/decisions/spec.md` — requisitos funcionais suportados por este modelo.
 - `docs/decisions/ADR-001-integracao-bioculttermos.md` — pontos 6, 8 e 10 fechados/apertados por esta
   ADR e pela ADR-003.
-- `S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-004-federated-architecture.md` —
+- `S:/git/Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-004-federated-architecture.md` —
   contrato do endpoint de federação referenciado em M8.
-- `S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-005-sqlite-json-persistence.md` —
+- `S:/git/Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-005-sqlite-json-persistence.md` —
   padrão de arquivo SQLite compartilhado por unidade.
-- `S:/git/Arquitetura-BioCultural/docs/architecture-decisions/ADR-007-shared-bioculttermos-module.md` —
+- `S:/git/Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-007-shared-bioculttermos-module.md` —
   padrão de submodule compartilhado do BioCultTermos.
-- `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+- `Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
   — retira nomenclatura científica do escopo do vocabulário controlado da federação; retifica a
   afirmação sobre o BioCultTermos em M5 acima (ver nota).
 - `docs/naturalistas.md` — fonte que originou os requisitos de fidelidade histórica (M4, M6, M8).

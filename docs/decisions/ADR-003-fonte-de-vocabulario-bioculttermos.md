@@ -6,7 +6,7 @@
 
 > **Emenda 2026-08-10**: o contrato V2 abaixo foi revisado — `$.nomeCientificoAtual` deixou de ser
 > campo monitorado, por força de
-> `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+> `Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
 > (N1, N3). Ver a nota após a tabela V2 e "Data de Revisão".
 
 ## Contexto
@@ -28,7 +28,7 @@ espalhados em **duas** tabelas, não uma:
 
 > **Nota (2026-08-10)**: `$.nomeCientificoAtual` era, quando esta ADR foi escrita, candidato ao
 > BioCultTermos.
-> `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+> `Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
 > (N1, N3) retirou nomenclatura científica do escopo do vocabulário controlado da federação — ver a
 > emenda ao contrato V2, abaixo. `$.nomesVernaculares[*].nome` não é afetado.
 
@@ -70,7 +70,7 @@ decide a integração operacional em geral):
 
 > **Emenda 2026-08-10.** Nomenclatura científica saiu do escopo do vocabulário controlado da
 > federação — decisão de
-> `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+> `Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
 > (N1, N3). `$.nomeCientificoAtual` deixa de ser campo monitorado pelo `AcquisitionService`: nenhuma
 > Unidade Hospedeira, incluindo esta, pode declarar caminho de nome científico como campo monitorado,
 > nem hoje nem quando a travessia (V1 acima) virar configuração declarada pelo hospedeiro. O campo
@@ -129,7 +129,7 @@ futura desta ADR, não uma omissão silenciosa.
 - `integracao.md` §2.1 (`:64-71`) e §3 passo 1 (`:112-115`) — checklist de implementação que trata a
   generalização como bloqueante.
 - `S:/git/BioCultDB/bioculttermos/backend/src/services/AcquisitionService.js` — código a generalizar.
-- `Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+- `Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
   — retira nomenclatura científica do escopo do vocabulário controlado da federação (N1, N3); motivou a
   emenda de 2026-08-10 ao contrato V2 desta ADR.
 
@@ -141,5 +141,5 @@ monitorar campos adicionais além do contrato V2 (ex. `acervos[*].tipoAcervo`,
 `etapas[*].povosEncontrados[*]`).
 
 **Emenda 2026-08-10**: contrato V2 revisado — `$.nomeCientificoAtual` removido por força da
-`Arquitetura-BioCultural/docs/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
+`Arquitetura-BioCultural/docs/tecnico/architecture-decisions/ADR-014-nomenclatura-cientifica-fora-do-vocabulario.md`
 (N1, N3). `$.nomesVernaculares[*].nome` inalterado. Ver nota no Status e no contrato V2.
